@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Help</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section>
+            <h2>What is this App?</h2>
+            <p>
+                This app verifies whether references are real or not. It
+                produces a report that details the likelihood that a reference
+                is real.
+            </p>
+        </section>
+
+        <section>
+            <h2>How To Process References</h2>
+            <p>There are two ways to process references.</p>
+            <h3>Automatic Method</h3>
+            <p>
+                <em
+                    >This method is designed to work with PDF documents that
+                    have a dedicated reference section, documents with no such
+                    section should be proessed with the manual method</em
+                >
+            </p>
+            <ol>
+                <li>Press the 'Select File' button and upload a file</li>
+                <li>Press the 'Process File' button</li>
+                <li>
+                    Review and correct the extracted references in the
+                    'Reference Editor' dialogue box
+                </li>
+            </ol>
+
+            <h3>Manual Method</h3>
+            <ol>
+                <li>Press the 'Paste Reference' button</li>
+                <li>
+                    Paste references into the 'Reference Editor' dialogue box
+                </li>
+            </ol>
+            <p>
+                After choosing either one of these steps, the references will be
+                processed and a report will be produced.
+            </p>
+        </section>
+
+        <section>
+            <h2>What Is In The Report?</h2>
+            <p>
+                The report lists every extracted reference along with a colour
+                coded verdict and confidence score ranging from 1 to 0.
+                References are asigned their verdict depending on what threshold
+                the score falls into.
+            </p>
+            <p>
+                Reference elements with errors are shown along with the expected
+                element value, matching elements are shown alone.
+            </p>
+            <table style="border-collapse: collapse; width: 100%">
+                <thead>
+                    <tr style="text-align: left; border-bottom: 2px solid #eee">
+                        <th style="padding: 10px">Verdict</th>
+                        <th style="padding: 10px">Score Threshold</th>
+                        <th style="padding: 10px">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td
+                            style="
+                                padding: 10px;
+                                vertical-align: top;
+                                color: #009e73;
+                            "
+                        >
+                            REAL
+                        </td>
+                        <td style="padding: 10px; vertical-align: top">
+                            &ge; 0.80
+                        </td>
+                        <td style="padding: 10px">
+                            Likely real, the reference contains no major errors.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="
+                                padding: 10px;
+                                vertical-align: top;
+                                color: #e69f00;
+                            "
+                        >
+                            UNSURE
+                        </td>
+                        <td style="padding: 10px; vertical-align: top">
+                            &ge; 0.60 and &lt; 0.80
+                        </td>
+                        <td style="padding: 10px">
+                            Could either be real or fake, the reference may
+                            contain small errors.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td
+                            style="
+                                padding: 10px;
+                                vertical-align: top;
+                                color: #d55e00;
+                            "
+                        >
+                            FAKE
+                        </td>
+                        <td style="padding: 10px; vertical-align: top">
+                            &lt; 0.60
+                        </td>
+                        <td style="padding: 10px">
+                            Likely fake, the reference may contain major errors.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                The report can be saved as a <code>.pdf</code>,
+                <code>.html</code> and/or <code>.csv</code> file in
+                <code>~/Documents/refreport</code> and/or shown in the GUI,
+                depending on the user settings.
+            </p>
+        </section>
+
+        <section>
+            <h2>What Settings Can I Change?</h2>
+            <p>
+                You can change settings related to backend services and the type
+                of generated report. This dialogue box can be accessed via the
+                'Settings' button.
+            </p>
+        </section>
+
+        <section>
+            <h2>How Do I Setup The Database and API Keys?</h2>
+            <p>
+                The database is located in <code>data/localpapers.db</code>, if
+                a database doesn't already exist one is automatically created.
+            </p>
+            <p>
+                The API keys and other secrets are stored in
+                <code>src/.env</code>, Semantic Scholar requires an API_KEY and
+                Crossref is better with an EMAIL. Both of these variables can be
+                added to
+                <code>src/.env</code>
+            </p>
+        </section>
+    </body>
+</html>

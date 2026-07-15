@@ -1,0 +1,22 @@
+# Python generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*.ruff_cache
+
+# Ruby generated files
+.bundle
+vendor/
+
+# Virtual environments
+.venv
+
+# Environment files
+.env
+
+# Data folder
+data/*
+!data/.gitkeep

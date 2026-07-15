@@ -1,0 +1,20 @@
+[project]
+name = "refchecker"
+version = "0.1.0"
+description = "A reference checker for journal articles and conference papers"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "habanero>=2.3.0",
+    "jellyfish>=1.2.1",
+    "numpy>=2.4.2",
+    "pymupdf>=1.27.1",
+    "pymupdf-layout>=1.27.1",
+    "pymupdf4llm>=0.3.4",
+    "pyside6>=6.10.2",
+    "python-dotenv>=1.2.2",
+    "rapidfuzz>=3.14.3",
+    "requests>=2.32.5",
+    "stop-words>=2025.11.4",
+    "weasyprint>=68.1",
+]
