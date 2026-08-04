@@ -15,7 +15,7 @@ Before the application can be run the dependencies have to be installed. uv is *
 1. Clone the repo
 
 ```bash
-git clone https://github.com/<user>/refchecker
+git clone https://github.com/dmfcat/refchecker
 ```
 
 2. Install Python and Ruby dependencies
