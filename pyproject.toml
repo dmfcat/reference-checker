@@ -1,7 +1,7 @@
 [project]
 name = "refchecker"
-version = "0.1.0"
-description = "A reference checker for journal articles and conference papers"
+version = "1.0.0"
+description = "A GUI desktop app for verifying the integrity of academic references."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [

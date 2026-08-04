@@ -1,25 +1,42 @@
 # Reference Checker
-A GUI app created with PySide6 that extracts bibliographic references from PDF files and verifies them to determine if they're hallucinated or not.
+
+A GUI desktop app for verifying the integrity of academic references.
 
 This program is designed to work with documents with dedicated reference sections.
 
-*NOTE: Human review of references marked as unsure or fake may be needed to confirm hallucinations*
+_NOTE: Human review of references marked as 'unsure' or 'fake' may be needed to confirm hallucinations_
 
 ## Running
+
 Make sure you have both Python and Ruby installed.
 
-Before the application can be run the dependencies have to be installed. uv is **highly** recommended for this as it quickly and easily installs all the required packages and sets up the virtual enviroment, all with a few commands. bundle is required to install AnyStyle.
+Before the application can be run the dependencies have to be installed. uv is **highly** recommended for this as it quickly and easily installs all the required packages and sets up the virtual enviroment, all within a few commands. bundle is required to install AnyStyle.
+
+1. Clone the repo
 
 ```bash
-cd refcheck
+git clone https://github.com/<user>/refchecker
+```
+
+2. Install Python and Ruby dependencies
+
+```bash
+cd refchecker
 bundle config set --local path 'vendor/bundle'
 bundle install
 uv sync
+```
+
+3. Run application
+
+```bash
 uv run src/main.py
 ```
 
 ## Structure
-*NOTE: the database is generated in data/ and the .env is placed in src/*
+
+_NOTE: the database is generated in data/ and the .env should be placed in src/_
+
 ```
 ├── assets/
 │   └── help.html
@@ -45,8 +62,11 @@ uv run src/main.py
 ```
 
 ## 3rd Party Libraries
-*NOTE: Some of these are dependencies, the full list is in pyproject.toml and Gemfile*
+
+_NOTE: Full list is in pyproject.toml and Gemfile_
+
 ### Python
+
 - habanero
 - jellyfish
 - numpy
@@ -61,4 +81,9 @@ uv run src/main.py
 - weasyprint
 
 ### Ruby
+
 - AnyStyle
+
+## Licence
+
+Licensed under the AGPLv3 Licence. See [`LICENCE`](LICENCE) for details.
