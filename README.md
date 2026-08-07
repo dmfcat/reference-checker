@@ -11,7 +11,7 @@ A GUI desktop app for verifying the integrity of academic references. This appli
 References extracted from Semantic Scholar and Crossref can also be optionally 'cached' in a database, for future usage. The user can toggle which databases are used and what type of report is received from the settings.
 
 > [!NOTE]
-> An API key is required to query Semantic Scholar and an email can be used to query Crossref, this information should be stored in `.env`. You can easily obtain one with a `ac.uk` or similar academic TLD email, an optional email can also be provided for Crossref. More details can be found in `src/.env.example`
+> An API key is required to query Semantic Scholar and an email can be used to query Crossref, this information should be stored in `.env`. You can easily obtain an API key with a `ac.uk` or similar academic email, the email for Crossref is recommended, but optional. More details can be found in `src/.env.example`
 >
 > This program is designed to work with documents with a dedicated reference section, rather than documents with footnote references.
 >
