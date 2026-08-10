@@ -20,6 +20,7 @@ References extracted from Semantic Scholar and Crossref can also be optionally '
 ## Running
 
 Make sure you have both [Python](https://www.python.org/) and [Ruby](https://www.ruby-lang.org/) installed.
+
 Before the application can be run the dependencies have to be installed. [uv](https://docs.astral.sh/uv/) is _highly_ recommended for managing the Python dependencies as it quickly and easily installs all the required packages and sets up the virtual environment, all within a few commands. bundle is required to install AnyStyle.
 
 1. Clone the repo
@@ -78,7 +79,7 @@ Make sure your Semantic Scholar API key and email are in `.env`, this file shoul
 
 ## About
 
-This was developed during my 'final year project' in my 3rd year of university. 
+This was developed during my 'final year project' in my 3rd year of university.
 
 ## Credits
 
