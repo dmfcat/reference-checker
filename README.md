@@ -79,7 +79,7 @@ Make sure your Semantic Scholar API key and email are in `.env`, this file shoul
 
 ## Demo Video
 
-https://github.com/user-attachments/assets/57935b9d-5e8e-4aef-b764-8091f62fbcff
+https://github.com/user-attachments/assets/e5af4ba7-2c70-45d0-a875-45ab7838031c
 
 ## About
 
