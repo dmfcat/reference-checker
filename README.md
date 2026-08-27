@@ -77,6 +77,10 @@ Make sure your Semantic Scholar API key and email are in `.env`, this file shoul
 └── uv.lock
 ```
 
+## Demo Video
+
+https://github.com/user-attachments/assets/57935b9d-5e8e-4aef-b764-8091f62fbcff
+
 ## About
 
 This was developed during my 'final year project' in my 3rd year of university.
