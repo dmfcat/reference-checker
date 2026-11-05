@@ -1,8 +1,6 @@
 import re
 
 import pymupdf
-import pymupdf.layout
-import pymupdf4llm
 
 
 def extract_all(file_path):
@@ -27,8 +25,7 @@ def extract(file_path):
             break
 
     # Convert ref section to md, intelligently accounting for columns and removing headers and footers
-    md_text = pymupdf4llm.to_markdown(
-        doc,
+    md_text = doc.to_markdown(
         header=False,
         footer=False,
         ignore_images=True,
@@ -39,8 +36,9 @@ def extract(file_path):
     doc.close()
 
     # Remove all text that appears before and after the reference section
+    # NOTE: There's no guarantee that a heading will start with a single `#`, may want to account for `#` through `######`
     ref_section = re.compile(
-        r"##\s{1}\*\*(references|bibliography|citations|works cited){1}\*\*",
+        r"#\s{1}\*\*(references|bibliography|citations|works cited){1}\*\*",
         flags=re.IGNORECASE,
     )
 
