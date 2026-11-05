@@ -1,9 +1,9 @@
 [project]
-name = "refchecker"
-version = "1.0.0"
+name = "reference-checker"
+version = "1.0.1"
 description = "A GUI desktop app for verifying the integrity of academic references."
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.14,<3.15"
 dependencies = [
     "habanero>=2.3.0",
     "jellyfish>=1.2.1",
@@ -18,3 +18,10 @@ dependencies = [
     "stop-words>=2025.11.4",
     "weasyprint>=68.1",
 ]
+
+[project.scripts]
+reference-checker = "reference_checker.main:run_app"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.5"]
+build-backend = "uv_build"

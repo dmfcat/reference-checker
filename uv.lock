@@ -1,11 +1,6 @@
 version = 1
-revision = 3
-requires-python = ">=3.14"
-resolution-markers = [
-    "sys_platform == 'win32'",
-    "sys_platform == 'emscripten'",
-    "sys_platform != 'emscripten' and sys_platform != 'win32'",
-]
+revision = 5
+requires-python = "==3.14.*"
 
 [[package]]
 name = "anyio"
@@ -579,9 +574,9 @@ wheels = [
 ]
 
 [[package]]
-name = "refchecker"
-version = "1.0.0"
-source = { virtual = "." }
+name = "reference-checker"
+version = "1.0.1"
+source = { editable = "." }
 dependencies = [
     { name = "habanero" },
     { name = "jellyfish" },
