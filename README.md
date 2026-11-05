@@ -96,8 +96,6 @@ Special thanks to the creators of these 3rd party libraries used in this applica
 - jellyfish
 - numpy
 - pymupdf
-- pymupdf-layout
-- pymupdf4llm
 - pyside6
 - python-dotenv
 - rapidfuzz
