@@ -17,9 +17,13 @@ References extracted from Semantic Scholar and Crossref can also be optionally '
 >
 > Human review of references may be needed to confirm hallucinations, this tool is meant to _assist_ you in finding fake references.
 
+## Demo Video
+
+https://github.com/user-attachments/assets/e5af4ba7-2c70-45d0-a875-45ab7838031c
+
 ## Running
 
-Make sure you have both [Python](https://www.python.org/) and [Ruby](https://www.ruby-lang.org/) installed.
+Make sure you have [Python](https://www.python.org/), [Ruby](https://www.ruby-lang.org/), [git](https://git-scm.com/install/) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed.
 
 Before the application can be run the dependencies have to be installed. [uv](https://docs.astral.sh/uv/) is _highly_ recommended for managing the Python dependencies as it quickly and easily installs all the required packages and sets up the virtual environment, all within a few commands. bundle is required to install AnyStyle.
 
@@ -27,46 +31,47 @@ Before the application can be run the dependencies have to be installed. [uv](ht
 
 ```bash
 git clone https://github.com/dmfcat/refchecker
+cd reference-checker
 ```
 
 2. Install Python and Ruby dependencies
 
 ```bash
-cd reference-checker
 bundle config set --local path 'vendor/bundle'
 bundle install
 uv sync
 ```
 
-3. Run application
+3. Run the application
 
 ```bash
-uv run src/main.py
+uv run reference-checker
 ```
 
-Make sure your Semantic Scholar API key and email are in `.env`, this file should be in [`src/`](src/), see [`src/.env.example`](src/.env.example) for more details.
+Make sure your Semantic Scholar API key and email are in `.env`, this file should be in the root directory, see [`.env.example`](.env.example) for more details.
 
 ## Structure
 
 > [!NOTE]
-> The database `localpapers.db` is generated in [`data/`](data/) (if it doesn't exist) and the `.env` should be placed in [`src/`](src/)
+> The database `localpapers.db` is generated in [`src/reference_checker/data/`](src/reference_checker/data/) if it doesn't exist.
 
 ```text
-├── assets/
-│   └── help.html
-├── data/
-│   ├── .gitkeep
-│   ├── localpapers.db
 ├── src/
-│   ├── .env
-│   ├── extract.py
-│   ├── format.rb
-│   ├── gui.py
-│   ├── main.py
-│   ├── parse.py
-│   ├── query.py
-│   ├── report.py
-│   └── verify.py
+│   └── reference_checker/
+│       ├── assets/
+│       │   └── help.html
+│       ├── data/
+│       │   ├── .gitkeep
+│       │   └── localpapers.db
+│       ├── extract.py
+│       ├── format.rb
+│       ├── gui.py
+│       ├── main.py
+│       ├── parse.py
+│       ├── query.py
+│       ├── report.py
+│       └── verify.py
+├── .env
 ├── .gitignore
 ├── .python-version
 ├── .ruby-version
@@ -76,10 +81,6 @@ Make sure your Semantic Scholar API key and email are in `.env`, this file shoul
 ├── README.md
 └── uv.lock
 ```
-
-## Demo Video
-
-https://github.com/user-attachments/assets/e5af4ba7-2c70-45d0-a875-45ab7838031c
 
 ## About
 

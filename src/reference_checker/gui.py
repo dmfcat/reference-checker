@@ -23,11 +23,11 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-import extract
-import parse
-import query
-import report
-import verify
+from .extract import extract_all
+from .parse import parse_all_refs
+from .query import query_all
+from .report import create_report
+from .verify import verify_all
 
 
 # Upload widget
@@ -106,7 +106,7 @@ class MainWidget(QWidget):
 
     def gen_report(self, refs, targets, score, file_name):
         self.toggle_buttons(True)
-        msg = report.create_report(
+        msg = create_report(
             refs, targets, score, self.settings.get("report"), file_name
         )
         if msg:
@@ -139,7 +139,7 @@ class MainWidget(QWidget):
 
     def extraction(self):
         self.reset_progress()
-        raw = extract.extract_all(self.file_path)
+        raw = extract_all(self.file_path)
         msg = f"{len(raw)} references found from {Path(self.file_path).name}"
         return self.open_ref_edit_dialog(msg, "\n\n".join(raw))
 
@@ -339,7 +339,7 @@ class HelpDialog(QDialog):
         self.btn = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok)
 
         help_path = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)), "..", "assets", "help.html"
+            Path(__file__).resolve().parent / "assets" / "help.html"
         )
 
         with open(help_path, "r", encoding="utf-8") as f:
@@ -420,18 +420,18 @@ class Runner(QObject):
     def parsing(self, refs):
         self.progress_updated.emit(5)
         self.status_updated.emit("Parsing...")
-        return parse.parse_all_refs(refs)
+        return parse_all_refs(refs)
 
     def querying(self, refs):
         self.status_updated.emit("Querying...")
-        return query.query_all(
+        return query_all(
             refs, self.settings.get("api"), callback=self.progress_updated.emit
         )
 
     def comparing(self, refs, targets):
         self.progress_updated.emit(9522)
         self.status_updated.emit("Verifying...")
-        return verify.verify_all(refs, targets, self.settings.get("api"))
+        return verify_all(refs, targets, self.settings.get("api"))
 
 
 def run():

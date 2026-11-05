@@ -34,7 +34,7 @@ def query_all(refs, settings, callback):
     conn = sskey = cr = None
     load_dotenv(verbose=True)
     if settings.get("local") is True:
-        db_path = (Path(__file__).parent / "../data/localpapers.db").resolve()
+        db_path = Path(__file__).resolve().parent / "data" / "localpapers.db"
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         check_db_exists(cursor)

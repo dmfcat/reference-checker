@@ -9,7 +9,7 @@ from jellyfish import jaro_winkler_similarity as jaro_winkler
 from rapidfuzz import fuzz
 from stop_words import get_stop_words
 
-import report
+from .report import get_target
 
 
 def verify_all(refs, targets, settings):
@@ -299,12 +299,13 @@ def tokenise_names(auth):
 # Add all refs to DB if applicable
 def store_all_refs(refs, scores):
     # Open DB
-    conn = sqlite3.connect((Path(__file__).parent / "../data/localpapers.db").resolve())
+    db_path = Path(__file__).resolve().parent / "data" / "localpapers.db"
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
     # Loop through all refs
     for ref, score in zip(refs, scores):
-        best_ref = report.get_target(ref, score.get("source"))
+        best_ref = get_target(ref, score.get("source"))
         doi = best_ref.get("doi")
         # Skip ref if no DOI or ref already from the db
         if not doi or score.get("source") == "Local Database":
