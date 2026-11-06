@@ -2,10 +2,7 @@
 
 A GUI Python tool for verifying the integrity of academic references, this tool aims to aid the user in detecting references so human review of the generated report may be needed to reach a final verdict of the integrity of a reference.
 
-This was developed during my 'final year project' of university.
-
-> [!NOTE]
-> An API key is required to query Semantic Scholar and an email can be used to query Crossref, this information should be stored in `.env`. You can easily obtain an API key with a `ac.uk` or similar academic email, the email for Crossref is recommended, but optional. More details can be found in [`src/.env.example`](src/.env.example)
+This was project was developed during my 'final year project' of university.
 
 ## Features
 
@@ -50,9 +47,9 @@ uv run reference-checker
 ```
 
 > [!NOTE]
-> You need your own API key to use the Semantic Scholar API, supplying your personal email for the Crossref API is also recommended
+> You need your own API key to use the Semantic Scholar API, supplying your personal email for the Crossref API is also recommended. You can easily obtain an API key from Semantic Scholar with an `ac.uk` or similar academic email
 >
-> An example `.env` file can be found in [`.env.example`](.env.example). Change the placeholder `API_KEY` variable to your key and the placeholder `EMAIL` to your personal email, and then rename `.env.example` to `.env`
+> An example `.env` file can be found in [`.env.example`](.env.example). Change the placeholder `API_KEY` variable to your key and the placeholder `EMAIL` to your personal email, and then rename `.env.example` to `.env`.
 
 ## Usage
 
