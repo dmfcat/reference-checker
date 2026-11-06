@@ -1,21 +1,24 @@
 # Reference Checker
 
-A GUI desktop app for verifying the integrity of academic references. This application works in five steps:
+A GUI Python tool for verifying the integrity of academic references, this tool aims to aid the user in detecting references so human review of the generated report may be needed to reach a final verdict of the integrity of a reference.
 
-1. The user can upload PDFs for reference extraction or paste plaintext references manually. The user is prompted to confirm the references for processing.
-2. These references are then parsed so each element is separated.
-3. Academic databases ([Semantic Scholar](https://www.semanticscholar.org/) and [Crossref](https://www.crossref.org/)) are queried to find potential matches.
-4. User uploaded references are compared against their respective potential matches.
-5. The user receives a colour-coded HTML formatted report on the validity of each reference and an overview for the document.
-
-References extracted from Semantic Scholar and Crossref can also be optionally 'cached' in a SQLite database, for future usage. The user can toggle which backends are used and what type of report is generated from the settings.
+This was developed during my 'final year project' of university.
 
 > [!NOTE]
 > An API key is required to query Semantic Scholar and an email can be used to query Crossref, this information should be stored in `.env`. You can easily obtain an API key with a `ac.uk` or similar academic email, the email for Crossref is recommended, but optional. More details can be found in [`src/.env.example`](src/.env.example)
->
-> This program is designed to work with documents with a dedicated reference section, rather than documents with footnote references.
->
-> Human review of references may be needed to confirm hallucinations, this tool is meant to _assist_ you in finding fake references.
+
+## Features
+
+- A easy to use and visually appealing GUI made with PySide6.
+- Extracts all references from the reference section of a PDF document.
+- Allows for manually entering plaintext references.
+- Allows for confirming extracted references.
+- Automatically parses references regardless of their style (e.g. Harvard, Vancouver, etc...).
+- Queries the Semantic Scholar and Crossref API and/or a local database for cross-referencing.
+- Stores verified references in a local SQLite database.
+- Grades and scores every extracted reference based on their individual elements.
+- Produces an informative and readable report.
+- Allows for customising the type of report generated and what backends are used.
 
 ## Demo Video
 
@@ -24,8 +27,6 @@ https://github.com/user-attachments/assets/e5af4ba7-2c70-45d0-a875-45ab7838031c
 ## Running
 
 Make sure you have [Python](https://www.python.org/), [Ruby](https://www.ruby-lang.org/), [git](https://git-scm.com/install/) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed.
-
-Before the application can be run the dependencies have to be installed. [uv](https://docs.astral.sh/uv/) is _highly_ recommended for managing the Python dependencies as it quickly and easily installs all the required packages and sets up the virtual environment, all within a few commands. bundle is required to install AnyStyle.
 
 1. Clone the repo
 
@@ -48,64 +49,31 @@ uv sync
 uv run reference-checker
 ```
 
-Make sure your Semantic Scholar API key and email are in `.env`, this file should be in the root directory, see [`.env.example`](.env.example) for more details.
+> [!NOTE]
+> You need your own API key to use the Semantic Scholar API, supplying your personal email for the Crossref API is also recommended
+>
+> An example `.env` file can be found in [`.env.example`](.env.example). Change the placeholder `API_KEY` variable to your key and the placeholder `EMAIL` to your personal email, and then rename `.env.example` to `.env`
 
-## Structure
+## Usage
+
+You can upload a document for extraction by clicking the 'Select File' button selecting a `.pdf` file and then clicking 'Process File'. You will be prompted to confirm the extracted references and on confirmation the app will commence verifying and then generate a report.
+
+You can optionally enter your references manually by clicking the 'Paste References' button. On confirmation the app will commence verifying and then generate a report.
+
+You can click the 'Settings' button to select which backend is used (Semantic Scholar, Crossref, Local Database) and what type of report is generated (GUI, `.pdf`, `.html`, `.csv`).
 
 > [!NOTE]
-> The database `localpapers.db` is generated in [`src/reference_checker/data/`](src/reference_checker/data/) if it doesn't exist.
+> The database `localpapers.db` is automatically generated in [`src/reference_checker/data/`](src/reference_checker/data/) if it doesn't already exist.
 
-```text
-├── src/
-│   └── reference_checker/
-│       ├── assets/
-│       │   └── help.html
-│       ├── data/
-│       │   ├── .gitkeep
-│       │   └── localpapers.db
-│       ├── extract.py
-│       ├── format.rb
-│       ├── gui.py
-│       ├── main.py
-│       ├── parse.py
-│       ├── query.py
-│       ├── report.py
-│       └── verify.py
-├── .env
-├── .gitignore
-├── .python-version
-├── .ruby-version
-├── Gemfile
-├── Gemfile.lock
-├── pyproject.toml
-├── README.md
-└── uv.lock
-```
+## How It Works
 
-## About
+This application works in five steps:
 
-This was developed during my 'final year project' in my 3rd year of university.
-
-## Credits
-
-Special thanks to the creators of these 3rd party libraries used in this application.
-
-### Python
-
-- habanero
-- jellyfish
-- numpy
-- pymupdf
-- pyside6
-- python-dotenv
-- rapidfuzz
-- requests
-- stop-words
-- weasyprint
-
-### Ruby
-
-- AnyStyle
+1. The user can upload PDFs for reference extraction or paste plaintext references manually. The user is prompted to confirm the references for processing.
+2. These references are then parsed so each element is separated.
+3. Academic databases ([Semantic Scholar](https://www.semanticscholar.org/) and [Crossref](https://www.crossref.org/)) are queried to find potential matches.
+4. User uploaded references are compared against their respective potential matches.
+5. The user receives a colour-coded HTML formatted report on the validity of each reference and an overview for the document.
 
 ## Licence
 
