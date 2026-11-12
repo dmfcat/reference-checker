@@ -2,7 +2,7 @@
 
 A GUI Python tool for verifying the integrity of academic references, this tool aims to aid the user in detecting references so human review of the generated report may be needed to reach a final verdict of the integrity of a reference.
 
-This was project was developed during my 'final year project' of university.
+This project was developed during my 'final year project' module of university.
 
 ## Features
 
